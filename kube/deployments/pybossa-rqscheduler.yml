@@ -1,0 +1,27 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: pybossa-rqscheduler
+spec:
+  selector:
+    matchLabels:
+      app: pybossa
+      role: rqscheduler
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pybossa
+        role: rqscheduler
+    spec:
+      containers:
+        - name: pybossa-rqscheduler
+          image: pybossa:2.7.1
+          command:
+            - rqscheduler
+            - --host
+            - redis-master
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi

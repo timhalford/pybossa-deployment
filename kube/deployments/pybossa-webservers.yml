@@ -1,0 +1,36 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: pybossa-webservers
+spec:
+  selector:
+    matchLabels:
+      app: pybossa
+      role: webserver
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pybossa
+        role: webserver
+    spec:
+      containers:
+        - name: pybossa-webserver
+          image: pybossa:2.7.1
+          command:
+            - python
+            - run.py
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - name: uploads
+              mountPath: /opt/pybossa/uploads
+      volumes:
+        - name: uploads
+          persistentVolumeClaim:
+            claimName: pybossa-uploads
+

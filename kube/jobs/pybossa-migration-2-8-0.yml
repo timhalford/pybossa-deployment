@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pybossa-migration
+spec:
+  template:
+    spec:
+      containers:
+        - name: pybossa-migration
+          image: pybossa:2.8.0
+          command:
+            - alembic
+            - upgrade
+            - head
+      restartPolicy: Never
+  backoffLimit: 0
+

@@ -1,4 +1,4 @@
-# Upgrading PyBossa With Minimal No Downtime
+# Upgrading PyBossa With Minimal Downtime
 
 ## Demo
 This demo will walkthrough the deployment of PyBossa upgrades, including database migrations, on Kubernetes, with an emphasis on minimizing downtime.

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: pybossa-rqscheduler
-          image: pybossa:2.7.1
+          image: pybossa:2.7.2
           command:
             - rqscheduler
             - --host

@@ -8,6 +8,7 @@ spec:
       app: pybossa
       role: webserver
   replicas: 1
+  progressDeadlineSeconds: 45
   template:
     metadata:
       labels:
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
         - name: pybossa-webserver
-          image: pybossa:2.7.2
+          image: pybossa:2.8.0
           command:
             - python
             - run.py
@@ -29,6 +30,10 @@ spec:
           volumeMounts:
             - name: uploads
               mountPath: /opt/pybossa/uploads
+          readinessProbe:
+            httpGet:
+              path: /api/helpingmaterial
+              port: 5000
       volumes:
         - name: uploads
           persistentVolumeClaim:

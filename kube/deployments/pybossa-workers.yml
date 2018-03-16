@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: pybossa-worker
-          image: pybossa:2.7.2
+          image: pybossa:2.8.0
           command:
             - python
             - app_context_rqworker.py

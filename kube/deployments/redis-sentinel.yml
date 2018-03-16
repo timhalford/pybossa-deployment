@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: redis-sentinel
+spec:
+  selector:
+    matchLabels:
+      app: redis
+      role: sentinel
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: sentinel
+    spec:
+      containers:
+        - name: sentinel
+          image: redis-sentinel:3.2.0
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: 6379
+

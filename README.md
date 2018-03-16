@@ -5,15 +5,13 @@ This demo will walkthrough the deployment of PyBossa upgrades, including databas
 
 The deployment uses an insecure and minimal configuration of PyBossa with features such as caching disabled for simplicity.
 
-You are encouraged to run this demo on the Virtual Machine provided, which has been provisioned with the demo system dependencies and where the Docker images have been prebuilt. This repo has been cloned to `~/pybossa-deployment`.
-
 ### System Dependenciess
 * Minikube (tested with v0.25.0)
 * Docker (tested with 17.10.0-ce)
 
 ### Setup & Teardown
 
-Minikube must be running with Kubernetes version 1.8.0. If you are on the provided Virtual Machine, Minkube has already been started and you can ignore this step.
+Minikube must be running with Kubernetes version 1.8.0.
 
 To setup the project run:
 ```bash
